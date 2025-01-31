@@ -6,7 +6,7 @@
 /*   By: natferna <natferna@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 21:48:25 by natferna          #+#    #+#             */
-/*   Updated: 2025/01/31 15:54:24 by natferna         ###   ########.fr       */
+/*   Updated: 2025/01/31 23:10:29 by natferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,9 @@ int	stack_transfer(char **args, t_stack *stack)
 	int	num;
 
 	i = 0;
-	while (args[i])
+	while (args[i] != NULL)
+		i++;
+	while (i--)
 	{
 		if (!is_integer(args[i]))
 			return (0);
@@ -70,7 +72,6 @@ int	stack_transfer(char **args, t_stack *stack)
 		if (num > INT_MAX || num < INT_MIN || is_duplicate(stack, num))
 			return (ft_printf("Error\n"), 0);
 		push(stack, num, 0);
-		i++;
 	}
 	return (1);
 }
