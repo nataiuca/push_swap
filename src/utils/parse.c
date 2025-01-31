@@ -68,7 +68,7 @@ int	stack_transfer(char **args, t_stack *stack)
 			return (0);
 		num = ft_atoi(args[i]);
 		if (num > INT_MAX || num < INT_MIN || is_duplicate(stack, num))
-			return (ft_printf("Error\n"),0);
+			return (ft_printf("Error\n"), 0);
 		push(stack, num, 0);
 		i++;
 	}
