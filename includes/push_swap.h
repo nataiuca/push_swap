@@ -110,8 +110,8 @@ void				btoa_step(t_stacksys *stacks, int rem_a, int rem_b);
 int					is_space(char c);
 char				**parse_arguments(int argc, char **args);
 int					validate_arguments(char **data);
-void init_atob(t_stacksys *stacks);
-int min_cost(int ramp_a,int ramp_b);
-int	ft_abs(int n);
+void				init_atob(t_stacksys *stacks);
+int					min_cost(int ramp_a, int ramp_b);
+int					ft_abs(int n);
 
 #endif
