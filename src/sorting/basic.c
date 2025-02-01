@@ -6,7 +6,7 @@
 /*   By: natferna <natferna@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 21:21:53 by natferna          #+#    #+#             */
-/*   Updated: 2025/01/31 13:58:33 by natferna         ###   ########.fr       */
+/*   Updated: 2025/02/01 22:10:25 by natferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,6 @@ void	sort_stack(t_stacksys *stacks)
 	if (!is_sorted(stacks->a) && stacks->a->size > 1)
 		stack_sort(stacks);
 	print_log(stacks->log);
-	if (is_sorted(stacks->a))
-		ft_printf("<<%s>>\n", "Sorted successfully");
-	else
-		ft_printf("<<%s>>\n", "Unable to sort");
-	print_stack(stacks->a);
-	ft_printf("|A\n");
 }
 
 void	stack_sort(t_stacksys *stacks)

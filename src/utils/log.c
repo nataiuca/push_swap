@@ -6,7 +6,7 @@
 /*   By: natferna <natferna@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 16:29:18 by natferna          #+#    #+#             */
-/*   Updated: 2025/01/31 13:51:50 by natferna         ###   ########.fr       */
+/*   Updated: 2025/02/01 22:28:53 by natferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,15 +77,12 @@ void	print_log(t_log *log)
 
 	if (!log || log->count == 0)
 	{
-		ft_printf("No steps recorded in the log.\n");
 		return ;
 	}
 	current = log->head;
 	while (current)
-	{
-		ft_printf("%s ", current->step);
+	{	
+		ft_printf("%s\n", current->step);
 		current = current->next;
 	}
-	ft_printf("\n");
-	ft_printf("Movements:%d\n", log->count);
 }
