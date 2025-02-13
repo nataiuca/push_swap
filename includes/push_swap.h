@@ -6,7 +6,7 @@
 /*   By: natferna <natferna@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 13:46:14 by natferna          #+#    #+#             */
-/*   Updated: 2025/01/31 17:23:49 by natferna         ###   ########.fr       */
+/*   Updated: 2025/02/13 23:36:59 by natferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,5 +113,6 @@ int					validate_arguments(char **data);
 void				init_atob(t_stacksys *stacks);
 int					min_cost(int ramp_a, int ramp_b);
 int					ft_abs(int n);
+long				ft_strtol(const char *str);
 
 #endif

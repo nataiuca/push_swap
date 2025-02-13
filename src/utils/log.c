@@ -6,7 +6,7 @@
 /*   By: natferna <natferna@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 16:29:18 by natferna          #+#    #+#             */
-/*   Updated: 2025/02/01 22:28:53 by natferna         ###   ########.fr       */
+/*   Updated: 2025/02/13 22:55:43 by natferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	print_log(t_log *log)
 	}
 	current = log->head;
 	while (current)
-	{	
+	{
 		ft_printf("%s\n", current->step);
 		current = current->next;
 	}

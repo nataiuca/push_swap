@@ -6,7 +6,7 @@
 /*   By: natferna <natferna@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 21:48:25 by natferna          #+#    #+#             */
-/*   Updated: 2025/01/31 23:10:29 by natferna         ###   ########.fr       */
+/*   Updated: 2025/02/13 23:38:21 by natferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ char	**parse_arguments(int argc, char **args)
 
 int	validate_arguments(char **data)
 {
-	int	i;
+	int		i;
+	long	num;
 
 	i = 0;
 	while (data[i])
@@ -41,6 +42,9 @@ int	validate_arguments(char **data)
 			return (ft_printf("Error\n"), 0);
 		i++;
 	}
+	num = ft_strtol(*data);
+	if (num > INT_MAX || num < INT_MIN)
+		return (ft_printf("Error\n"), 0);
 	return (1);
 }
 
@@ -67,9 +71,9 @@ int	stack_transfer(char **args, t_stack *stack)
 	while (i--)
 	{
 		if (!is_integer(args[i]))
-			return (0);
+			return (ft_printf("Error\n"), 0);
 		num = ft_atoi(args[i]);
-		if (num > INT_MAX || num < INT_MIN || is_duplicate(stack, num))
+		if (is_duplicate(stack, num))
 			return (ft_printf("Error\n"), 0);
 		push(stack, num, 0);
 	}
@@ -83,8 +87,6 @@ int	is_integer(char *str)
 	i = 0;
 	if (str[i] == '-' || str[i] == '+')
 		i++;
-	if (str[i] == '0' && str[i + 1] != '\0')
-		return (0);
 	while (str[i])
 	{
 		if (str[i] < '0' || str[i] > '9')
