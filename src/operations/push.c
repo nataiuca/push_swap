@@ -6,7 +6,7 @@
 /*   By: natferna <natferna@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 20:50:44 by natferna          #+#    #+#             */
-/*   Updated: 2025/01/31 13:47:39 by natferna         ###   ########.fr       */
+/*   Updated: 2025/02/17 21:42:04 by natferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void	push(t_stack *stack, int value, int index)
 	new_node->index = index;
 	if (stack->top != NULL)
 		new_node->next = stack->top;
+	else
+		new_node->next = NULL;
 	stack->top = new_node;
 	stack->size++;
 }

@@ -6,7 +6,7 @@
 /*   By: natferna <natferna@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 21:11:51 by natferna          #+#    #+#             */
-/*   Updated: 2025/01/31 14:36:48 by natferna         ###   ########.fr       */
+/*   Updated: 2025/02/17 21:42:43 by natferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,22 @@ void	free_stack(t_stack *stack)
 {
 	t_node	*current;
 	t_node	*temp;
-
-	current = stack->top;
-	while (current)
+	current=NULL;
+	temp=NULL;
+	if(stack)
 	{
-		temp = current;
-		current = current->next;
-		free(temp);
+		current = stack->top;
+		while (current)
+		{
+
+			temp = current;
+			current = current->next;
+			free(temp);
+
+		}
+		free(stack);
 	}
-	free(stack);
+	
 }
 
 void	print_stack(t_stack *stack)

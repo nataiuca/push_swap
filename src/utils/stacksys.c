@@ -6,7 +6,7 @@
 /*   By: natferna <natferna@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 18:52:34 by natferna          #+#    #+#             */
-/*   Updated: 2025/01/31 14:37:12 by natferna         ###   ########.fr       */
+/*   Updated: 2025/02/17 21:14:41 by natferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,19 +34,21 @@ t_stacksys	*setup_stacks(int mode)
 		sys->b = create_stack();
 		sys->log = init_log();
 		sys->head = malloc(sizeof(t_node));
+		if(!sys->a||!sys->b||!sys->log||!sys->head)
+			return(clean_stacks(sys),NULL);
 	}
 	return (sys);
 }
 
 void	clean_stacks(t_stacksys *sys)
 {
-	if (!sys->a)
+	if (sys->a)
 		free_stack(sys->a);
-	if (!sys->b)
+	if (sys->b)
 		free_stack(sys->b);
-	if (!sys->log)
+	if (sys->log)
 		clean_log(sys->log);
-	if (!sys->head)
+	if (sys->head)
 		free(sys->head);
 	sys->a = NULL;
 	sys->b = NULL;

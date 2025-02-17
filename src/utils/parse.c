@@ -6,7 +6,7 @@
 /*   By: natferna <natferna@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 21:48:25 by natferna          #+#    #+#             */
-/*   Updated: 2025/02/13 23:38:21 by natferna         ###   ########.fr       */
+/*   Updated: 2025/02/18 00:09:09 by natferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,48 +15,56 @@
 char	**parse_arguments(int argc, char **args)
 {
 	char	**data;
-	int		i;
 
 	if (argc == 2)
 		return (ft_split(args[1], ' '));
-	data = (char **)malloc((argc) * sizeof(char *));
-	i = 0;
-	while (i < argc - 1)
+	if (argc>1)
 	{
-		data[i] = ft_strdup(args[i + 1]);
-		i++;
+		data = args2data(argc,args);
+		return (data);
 	}
-	data[argc - 1] = NULL;
-	return (data);
+	else
+		return NULL;
 }
 
 int	validate_arguments(char **data)
 {
 	int		i;
 	long	num;
-
-	i = 0;
-	while (data[i])
+	if(data)
 	{
-		if (!is_integer(data[i]))
+		i = 0;
+		while (data[i])
+		{
+			if (!is_integer(data[i]))
+				return (ft_printf("Error\n"), 0);
+			i++;
+		}
+		num = ft_strtol(*data);
+		if (num > INT_MAX || num < INT_MIN)
 			return (ft_printf("Error\n"), 0);
-		i++;
+		return (1);
 	}
-	num = ft_strtol(*data);
-	if (num > INT_MAX || num < INT_MIN)
-		return (ft_printf("Error\n"), 0);
-	return (1);
+	return(ft_printf("Error\n"), 0);
 }
 
 int	intake(int argc, char **args, t_stack *stack)
 {
 	char	**data;
-
-	if (argc == 1)
+	if (argc < 2)
 		return (0);
 	data = parse_arguments(argc, args);
+	if(!data)
+		return(0);
 	if (!validate_arguments(data))
+	{
+		if (data) 
+		{
+			clear_data(data);
+		}
 		return (0);
+	}
+		
 	return (stack_transfer(data, stack));
 }
 
@@ -77,6 +85,7 @@ int	stack_transfer(char **args, t_stack *stack)
 			return (ft_printf("Error\n"), 0);
 		push(stack, num, 0);
 	}
+	clear_data(args);
 	return (1);
 }
 

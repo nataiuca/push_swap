@@ -6,7 +6,7 @@
 /*   By: natferna <natferna@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 20:51:17 by natferna          #+#    #+#             */
-/*   Updated: 2025/01/31 13:48:33 by natferna         ###   ########.fr       */
+/*   Updated: 2025/02/16 22:36:52 by natferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,18 @@ void	rotate(t_stack *stack)
 	t_node	*first;
 	t_node	*last;
 
-	if (stack->size < 2)
+	if (!stack || stack->size < 2)
 		return ;
 	first = stack->top;
-	last = stack->top;
+	last = first;
 	while (last->next)
 		last = last->next;
-	last->next = first;
-	stack->top = first->next;
-	first->next = NULL;
+	
+	stack->top = first->next;  // Nuevo tope
+	last->next = first;        // El último apunta al primero
+	first->next = NULL;        // El antiguo tope es ahora el final
 }
+
 
 void	ra(t_stack *a, t_stack *b, t_log *log)
 {

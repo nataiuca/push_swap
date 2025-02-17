@@ -6,7 +6,7 @@
 /*   By: natferna <natferna@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 13:46:14 by natferna          #+#    #+#             */
-/*   Updated: 2025/02/13 23:36:59 by natferna         ###   ########.fr       */
+/*   Updated: 2025/02/17 23:37:20 by natferna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,5 +114,7 @@ void				init_atob(t_stacksys *stacks);
 int					min_cost(int ramp_a, int ramp_b);
 int					ft_abs(int n);
 long				ft_strtol(const char *str);
+char	  			**args2data(int argc, char **args);
+void 				clear_data(char** data);
 
 #endif
