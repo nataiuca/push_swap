@@ -37,7 +37,7 @@ char	**args2data(int argc, char **args)
         }
         i++;
     }
-    data[argc-1]='\0';
+    data[argc-1]= NULL;
     return(data);
 }
 void clear_data(char** data)
