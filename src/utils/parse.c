@@ -18,20 +18,21 @@ char	**parse_arguments(int argc, char **args)
 
 	if (argc == 2)
 		return (ft_split(args[1], ' '));
-	if (argc>1)
+	if (argc > 1)
 	{
-		data = args2data(argc,args);
+		data = args2data(argc, args);
 		return (data);
 	}
 	else
-		return NULL;
+		return (NULL);
 }
 
 int	validate_arguments(char **data)
 {
 	int		i;
 	long	num;
-	if(data)
+
+	if (data)
 	{
 		i = 0;
 		while (data[i])
@@ -45,26 +46,26 @@ int	validate_arguments(char **data)
 			return (ft_printf("Error\n"), 0);
 		return (1);
 	}
-	return(ft_printf("Error\n"), 0);
+	return (ft_printf("Error\n"), 0);
 }
 
 int	intake(int argc, char **args, t_stack *stack)
 {
 	char	**data;
+
 	if (argc < 2)
 		return (0);
 	data = parse_arguments(argc, args);
-	if(!data)
-		return(0);
+	if (!data)
+		return (0);
 	if (!validate_arguments(data))
 	{
-		if (data) 
+		if (data)
 		{
 			clear_data(data);
 		}
 		return (0);
 	}
-		
 	return (stack_transfer(data, stack));
 }
 

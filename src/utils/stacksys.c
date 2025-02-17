@@ -34,8 +34,8 @@ t_stacksys	*setup_stacks(int mode)
 		sys->b = create_stack();
 		sys->log = init_log();
 		sys->head = malloc(sizeof(t_node));
-		if(!sys->a||!sys->b||!sys->log||!sys->head)
-			return(clean_stacks(sys),NULL);
+		if (!sys->a || !sys->b || !sys->log || !sys->head)
+			return (clean_stacks(sys), NULL);
 	}
 	return (sys);
 }

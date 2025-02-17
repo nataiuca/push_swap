@@ -31,22 +31,20 @@ void	free_stack(t_stack *stack)
 {
 	t_node	*current;
 	t_node	*temp;
-	current=NULL;
-	temp=NULL;
-	if(stack)
+
+	current = NULL;
+	temp = NULL;
+	if (stack)
 	{
 		current = stack->top;
 		while (current)
 		{
-
 			temp = current;
 			current = current->next;
 			free(temp);
-
 		}
 		free(stack);
 	}
-	
 }
 
 void	print_stack(t_stack *stack)

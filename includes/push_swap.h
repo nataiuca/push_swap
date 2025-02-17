@@ -114,7 +114,7 @@ void				init_atob(t_stacksys *stacks);
 int					min_cost(int ramp_a, int ramp_b);
 int					ft_abs(int n);
 long				ft_strtol(const char *str);
-char	  			**args2data(int argc, char **args);
-void 				clear_data(char** data);
+char				**args2data(int argc, char **args);
+void				clear_data(char **data);
 
 #endif
